@@ -1,6 +1,6 @@
 {
   "name": "queue-facade",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An easy way to produce and consume messages",
   "main": "lib/index.js",
   "files": [
@@ -11,6 +11,10 @@
     "build": "npx tsc"
   },
   "author": "João Guilherme",
+  "email": "joao.sczip@hotmail.com",
+  "repository": {
+    "url": "https://github.com/joaosczip/easy-async"
+  },
   "license": "ISC",
   "devDependencies": {
     "@types/amqplib": "^0.5.17",
