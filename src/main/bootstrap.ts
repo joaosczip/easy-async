@@ -24,9 +24,8 @@ const bootstrap = () => {
       }
     }
 
-    const dispatcher = new Dispatcher(producerRegister);
-    return dispatcher;
+    return new Dispatcher(producerRegister, configs);
   };
 };
 
-export default bootstrap();
+export const initDispatcher = bootstrap();

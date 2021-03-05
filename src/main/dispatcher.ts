@@ -1,17 +1,14 @@
-import { path } from "app-root-path";
-import { readFileSync } from "fs";
-
 import { DriverConfig } from "..";
 import { Producer, ProducerParams, Register } from "../protocols";
-
-const providers = JSON.parse(
-  readFileSync(`${path}/asynconfig.json`).toString()
-) as DriverConfig[];
-
 export class Dispatcher {
   private producer: Producer | undefined;
 
-  constructor(private readonly register: Register<Producer>) {}
+  constructor(
+    private readonly register: Register<Producer>,
+    private readonly configs: DriverConfig[]
+  ) {
+    this.setDefaultProducer();
+  }
 
   private findProducer(driverName: string): Producer | undefined {
     const providers = this.register.getProviders();
@@ -19,8 +16,14 @@ export class Dispatcher {
     return producer?.provider;
   }
 
+  private setDefaultProducer(): void {
+    const { driver } =
+      this.configs.find((config) => config.default) || this.configs[0];
+    this.producer = this.findProducer(driver);
+  }
+
   private findDriverConfig(driverName: string): DriverConfig | undefined {
-    return providers.find(({ driver }) => driver === driverName);
+    return this.configs.find(({ driver }) => driver === driverName);
   }
 
   usingDriver(driver: string): Dispatcher {

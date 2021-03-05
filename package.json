@@ -1,6 +1,6 @@
 {
   "name": "queue-facade",
-  "version": "1.0.16",
+  "version": "1.0.18",
   "description": "An easy way to produce and consume messages",
   "main": "lib/main/bootstrap.js",
   "files": [
