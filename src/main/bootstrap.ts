@@ -1,9 +1,15 @@
 import "module-alias/register";
+import { path } from "app-root-path";
+import { readFileSync } from "fs";
 
 import { AMQPLibAdapter, KafkaJsAdapter } from "../adapters";
-import configs from "../config/providers";
 import { ProducerRegister } from "../main/producer-register";
 import { Dispatcher } from "../main/dispatcher";
+import { DriverConfig } from "..";
+
+const configs = JSON.parse(
+  readFileSync(`${path}/asynconfig.json`).toString()
+) as DriverConfig[];
 
 const producerRegister = new ProducerRegister();
 producerRegister.registry(new KafkaJsAdapter(), "kafka");

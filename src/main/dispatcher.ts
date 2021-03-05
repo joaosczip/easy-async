@@ -1,6 +1,12 @@
-import { Producer, ProducerParams, Register } from "../protocols";
-import providers from "../config/providers";
+import { path } from "app-root-path";
+import { readFileSync } from "fs";
+
 import { DriverConfig } from "..";
+import { Producer, ProducerParams, Register } from "../protocols";
+
+const providers = JSON.parse(
+  readFileSync(`${path}/asynconfig.json`).toString()
+) as DriverConfig[];
 
 export class Dispatcher {
   private producer: Producer | undefined;
