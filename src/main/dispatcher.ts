@@ -1,5 +1,5 @@
-import { Producer, ProducerParams, Register } from "@/protocols";
-import providers from "@/config/providers";
+import { Producer, ProducerParams, Register } from "../protocols";
+import providers from "../config/providers";
 import { DriverConfig } from "..";
 
 export class Dispatcher {

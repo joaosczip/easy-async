@@ -1,7 +1,7 @@
 import { CompressionTypes, Kafka } from "kafkajs";
 
 import { DriverConfig } from "..";
-import { Producer, ProducerParams } from "@/protocols";
+import { Producer, ProducerParams } from "../protocols";
 
 export class KafkaJsAdapter implements Producer {
   private client: Kafka;

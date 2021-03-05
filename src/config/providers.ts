@@ -9,7 +9,7 @@ export default [
   },
   {
     driver: "rabbitmq",
-    host: "rabbitmq",
+    host: "localhost",
     port: 5672,
   },
 ] as DriverConfig[];

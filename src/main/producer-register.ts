@@ -1,4 +1,4 @@
-import { Producer, Register } from "@/protocols";
+import { Producer, Register } from "../protocols";
 
 export class ProducerRegister implements Register<Producer> {
   private providers: {

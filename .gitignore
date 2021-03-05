@@ -1,3 +1,4 @@
 node_modules
 lib
 covrage
+src/test.ts

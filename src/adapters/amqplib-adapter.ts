@@ -1,7 +1,7 @@
 import { Channel, connect } from "amqplib";
 
 import { DriverConfig } from "..";
-import { Producer, ProducerParams } from "@/protocols";
+import { Producer, ProducerParams } from "../protocols";
 
 export class AMQPLibAdapter implements Producer {
   private channel: Channel;
